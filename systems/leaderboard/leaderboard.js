@@ -285,7 +285,8 @@
         getPlayerRankTitles,
         findPlayerRank,
         getRankColor,
-        getRankShadow
+        getRankShadow,
+        setRankings
     };
 
     console.log("✅ Système de titres Top 1 → Top 100 chargé");
