@@ -1,0 +1,3722 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #080a09;
+  color: #fff;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+#main-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 50% 45%, #263b2b 0%, #111a14 40%, #070907 100%);
+}
+
+.menu-background {
+  position: absolute;
+  inset: -100px;
+
+  opacity: .25;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+
+  background-size: 55px 55px;
+
+  transform: perspective(500px) rotateX(55deg) scale(1.5);
+  transform-origin: center bottom;
+
+  animation: gridMove 18s linear infinite;
+}
+
+@keyframes gridMove {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 550px;
+  }
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.main-logo {
+  position: absolute;
+  top: 55px;
+  left: 70px;
+}
+
+.logo-name {
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: -4px;
+}
+
+.logo-name span {
+  color: #72e366;
+}
+
+.logo-line {
+  width: 100%;
+  height: 2px;
+
+  margin-top: 5px;
+
+  background: #72e366;
+}
+
+.logo-subtitle {
+  margin-top: 7px;
+
+  font-size: 10px;
+  letter-spacing: 4px;
+
+  color: #87948a;
+}
+
+
+/* =========================
+   MENU CENTRAL
+========================= */
+
+.menu-content {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -45%);
+
+  width: 330px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.menu-button {
+  width: 100%;
+  height: 53px;
+
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 7px;
+
+  background: rgba(7,11,8,.72);
+
+  color: #dfe7e1;
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+
+  cursor: pointer;
+
+  transition:
+    .15s ease;
+}
+
+.menu-button:hover {
+  transform: translateX(5px);
+
+  background: rgba(80,160,80,.18);
+
+  border-color: #72e366;
+
+  color: white;
+}
+
+.menu-button.primary {
+  height: 62px;
+
+  background: #5acb55;
+
+  border-color: #83ee7b;
+
+  color: #061006;
+
+  font-size: 18px;
+
+  box-shadow:
+    0 8px 30px rgba(80,210,80,.18);
+}
+
+.menu-button.primary:hover {
+  transform: translateY(-2px);
+
+  background: #72e366;
+}
+
+
+/* =========================
+   PROFIL DROITE
+========================= */
+
+.player-card {
+  position: absolute;
+
+  top: 45px;
+  right: 45px;
+
+  width: 290px;
+
+  padding: 15px;
+
+  display: flex;
+  gap: 15px;
+
+  background: rgba(7,11,8,.82);
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  border-radius: 10px;
+
+  box-shadow: 0 15px 50px rgba(0,0,0,.35);
+}
+
+.player-preview {
+  width: 85px;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255,255,255,.035);
+
+  border-radius: 7px;
+}
+
+
+/* PERSONNAGE */
+
+.player-character,
+.large-character {
+  position: relative;
+
+  width: 52px;
+  height: 72px;
+}
+
+.character-body,
+.large-body {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  width: 42px;
+  height: 43px;
+
+  border-radius: 8px;
+
+  background: #67d95c;
+
+  border: 3px solid #111;
+}
+
+.character-face,
+.large-face {
+  position: absolute;
+
+  left: 50%;
+  top: 0;
+
+  transform: translateX(-50%);
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  background: #f1c27d;
+
+  border: 3px solid #111;
+}
+
+.player-information {
+  flex: 1;
+}
+
+.player-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #69756d;
+}
+
+#player-name {
+  margin-top: 4px;
+
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.player-stats {
+  margin-top: 13px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  gap: 5px;
+}
+
+.player-stat {
+  padding: 7px 3px;
+
+  background: rgba(255,255,255,.045);
+
+  border-radius: 5px;
+
+  text-align: center;
+}
+
+.player-stat span {
+  display: block;
+
+  font-size: 8px;
+
+  color: #78847c;
+}
+
+.player-stat strong {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   MONNAIE
+========================= */
+
+.currency-panel {
+  position: absolute;
+
+  right: 45px;
+  bottom: 50px;
+
+  display: flex;
+  gap: 6px;
+}
+
+.currency {
+  min-width: 100px;
+
+  padding: 10px 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: rgba(7,11,8,.85);
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  border-radius: 7px;
+
+  font-weight: 700;
+}
+
+.currency-icon {
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: #f1c84c;
+
+  box-shadow: 0 0 10px #f1c84c;
+}
+
+#plus-coins {
+  width: 38px;
+
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 7px;
+
+  background: rgba(255,255,255,.08);
+
+  color: white;
+
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+#plus-coins:hover {
+  background: rgba(255,255,255,.15);
+}
+
+
+/* =========================
+   VERSION
+========================= */
+
+.menu-version {
+  position: absolute;
+
+  left: 45px;
+  bottom: 45px;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+
+  color: #4e5a52;
+}
+
+
+/* =========================
+   PANNEAUX
+========================= */
+
+.overlay-panel {
+  position: fixed;
+  inset: 0;
+
+  z-index: 2000;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,.72);
+
+  backdrop-filter: blur(8px);
+}
+
+.overlay-panel.open {
+  display: flex;
+}
+
+.panel {
+  position: relative;
+
+  width: 620px;
+  max-width: 90vw;
+  max-height: 85vh;
+
+  padding: 35px;
+
+  overflow: auto;
+
+  background: #101610;
+
+  border: 1px solid rgba(255,255,255,.13);
+
+  border-radius: 12px;
+
+  box-shadow: 0 30px 100px rgba(0,0,0,.65);
+}
+
+.large-panel {
+  width: 760px;
+}
+
+.shop-panel {
+  width: 850px;
+}
+
+.close-panel {
+  position: absolute;
+
+  top: 14px;
+  right: 18px;
+
+  border: 0;
+
+  background: none;
+
+  color: #89958d;
+
+  font-size: 28px;
+
+  cursor: pointer;
+}
+
+.close-panel:hover {
+  color: white;
+}
+
+.panel-title {
+  margin-bottom: 30px;
+
+  font-size: 26px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================
+   PROFIL
+========================= */
+
+.profile-large {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.large-character {
+  width: 130px;
+  height: 170px;
+
+  transform: scale(1.6);
+}
+
+.profile-data {
+  flex: 1;
+}
+
+.profile-data label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  color: #77837b;
+}
+
+#nickname-input {
+  width: 100%;
+  height: 44px;
+
+  padding: 0 12px;
+
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 6px;
+
+  outline: none;
+
+  background: rgba(255,255,255,.06);
+
+  color: white;
+
+  font-size: 15px;
+}
+
+#nickname-input:focus {
+  border-color: #72e366;
+}
+
+.small-button {
+  margin-top: 10px;
+
+  padding: 11px 18px;
+
+  border: 1px solid #5fbd59;
+  border-radius: 6px;
+
+  background: rgba(95,190,85,.16);
+
+  color: #a9f2a2;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.small-button:hover {
+  background: rgba(95,190,85,.3);
+}
+
+.profile-stat-grid {
+  margin-top: 25px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 8px;
+}
+
+.profile-stat-grid div {
+  padding: 13px;
+
+  background: rgba(255,255,255,.045);
+
+  border-radius: 6px;
+}
+
+.profile-stat-grid span {
+  display: block;
+
+  font-size: 9px;
+
+  color: #77837b;
+}
+
+.profile-stat-grid strong {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 18px;
+}
+
+
+/* =========================
+   SKINS
+========================= */
+
+.skin-layout {
+  display: flex;
+  gap: 45px;
+}
+
+.skin-preview {
+  width: 230px;
+  min-height: 320px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255,255,255,.035);
+
+  border-radius: 8px;
+}
+
+.skin-options {
+  flex: 1;
+}
+
+.section-title {
+  margin-bottom: 12px;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  color: #849087;
+}
+
+.color-grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-bottom: 28px;
+}
+
+.skin-color,
+.body-color {
+  width: 42px;
+  height: 42px;
+
+  border: 3px solid rgba(255,255,255,.12);
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  transition: .15s;
+}
+
+.skin-color:hover,
+.body-color:hover {
+  transform: scale(1.1);
+
+  border-color: white;
+}
+
+
+/* =========================
+   BOUTIQUE
+========================= */
+
+.shop-balance {
+  margin-bottom: 22px;
+
+  color: #7d8981;
+}
+
+.shop-balance strong {
+  color: #f1c84c;
+}
+
+.shop-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+.shop-item {
+  padding: 18px;
+
+  background: rgba(255,255,255,.035);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  border-radius: 8px;
+}
+
+.item-preview {
+  height: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 15px;
+
+  border-radius: 6px;
+
+  background: #182219;
+
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.rgb-preview {
+  background:
+    linear-gradient(
+      120deg,
+      #ff3d3d,
+      #ffe83d,
+      #3dff72,
+      #3ddfff,
+      #693dff,
+      #ff3de8
+    );
+}
+
+.accessory-preview {
+  color: #72e366;
+}
+
+.item-name {
+  font-weight: 800;
+}
+
+.item-description {
+  min-height: 35px;
+
+  margin-top: 7px;
+
+  font-size: 11px;
+
+  color: #748078;
+}
+
+.item-price {
+  margin-top: 12px;
+
+  color: #f1c84c;
+
+  font-weight: 900;
+}
+
+.buy-button {
+  width: 100%;
+
+  margin-top: 10px;
+
+  padding: 10px;
+
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 5px;
+
+  background: rgba(255,255,255,.07);
+
+  color: white;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.buy-button:hover {
+  background: rgba(95,190,85,.2);
+
+  border-color: #72e366;
+}
+
+
+/* =========================
+   CLASSEMENT
+========================= */
+
+.leaderboard-tabs {
+  display: flex;
+  gap: 5px;
+
+  margin-bottom: 15px;
+}
+
+.leaderboard-tabs button {
+  padding: 9px 15px;
+
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 5px;
+
+  background: rgba(255,255,255,.05);
+
+  color: #8a958d;
+
+  cursor: pointer;
+}
+
+.leaderboard-tabs button.active,
+.leaderboard-tabs button:hover {
+  background: rgba(95,190,85,.18);
+
+  color: white;
+
+  border-color: #72e366;
+}
+
+.leader-row {
+  display: grid;
+
+  grid-template-columns: 50px 1fr 120px;
+
+  padding: 13px;
+
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.leader-row.header {
+  color: #68746c;
+
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+
+/* =========================
+   CLANS
+========================= */
+
+.clan-empty {
+  padding: 45px;
+
+  text-align: center;
+
+  background: rgba(255,255,255,.025);
+
+  border-radius: 8px;
+}
+
+.clan-symbol {
+  width: 55px;
+  height: 55px;
+
+  margin: 0 auto 20px;
+
+  border: 4px solid #72e366;
+
+  border-radius: 10px;
+
+  transform: rotate(45deg);
+}
+
+.clan-empty h2 {
+  font-size: 18px;
+}
+
+.clan-empty p {
+  max-width: 400px;
+
+  margin: 10px auto 20px;
+
+  color: #748078;
+
+  font-size: 13px;
+}
+
+.clan-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+
+/* =========================
+   JEU
+========================= */
+
+#game-container {
+  position: fixed;
+  inset: 0;
+}
+
+#game {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+#ui {
+  position: fixed;
+  inset: 0;
+
+  z-index: 10;
+
+  pointer-events: none;
+}
+
+#stats {
+  position: absolute;
+
+  top: 15px;
+  left: 15px;
+
+  display: flex;
+  gap: 7px;
+}
+
+.stat,
+.res {
+  padding: 8px 11px;
+
+  background: rgba(0,0,0,.6);
+
+  border-radius: 6px;
+
+  font-size: 11px;
+}
+
+#resources {
+  position: absolute;
+
+  top: 15px;
+  right: 150px;
+
+  display: flex;
+  gap: 7px;
+}
+
+#minimap-container {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 120px;
+  height: 120px;
+
+  background: rgba(0,0,0,.6);
+
+  border: 1px solid rgba(255,255,255,.2);
+
+  border-radius: 6px;
+
+  overflow: hidden;
+}
+
+#minimap {
+  display: block;
+}
+
+#build-bar {
+  position: fixed;
+
+  bottom: 15px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 7px;
+
+  z-index: 20;
+}
+
+.build-btn {
+  width: 75px;
+  height: 42px;
+
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 6px;
+
+  background: rgba(0,0,0,.65);
+
+  color: white;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.build-btn:hover,
+.build-btn.active {
+  background: rgba(95,190,85,.25);
+
+  border-color: #72e366;
+}
+
+#info {
+  position: fixed;
+
+  bottom: 68px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 6px 12px;
+
+  background: rgba(0,0,0,.5);
+
+  border-radius: 5px;
+
+  color: #9aa59e;
+
+  font-size: 10px;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+  .main-logo {
+    top: 25px;
+    left: 25px;
+  }
+
+  .logo-name {
+    font-size: 35px;
+  }
+
+  .player-card {
+    top: 20px;
+    right: 20px;
+
+    width: 230px;
+  }
+
+  .menu-content {
+    top: 56%;
+  }
+
+  .panel {
+    padding: 25px;
+  }
+
+  .skin-layout,
+  .profile-large {
+    flex-direction: column;
+  }
+
+  .shop-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* DEADLY.IO — PERSONNAGE ROND */
+.player-character,
+#skin-character,
+.character-preview {
+    position: relative;
+}
+
+.player-character .character-body,
+#skin-character .character-body,
+.large-body {
+    width: 58px !important;
+    height: 58px !important;
+    border-radius: 50% !important;
+    background: var(--player-skin, #f1c27d) !important;
+    border: 3px solid rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+}
+
+.player-character .character-face,
+#skin-character .character-face,
+.large-face {
+    width: 58px !important;
+    height: 58px !important;
+    border-radius: 50% !important;
+    background: var(--player-skin, #f1c27d) !important;
+    border: none !important;
+    position: absolute;
+    inset: 0;
+}
+
+.player-character .character-body::before,
+.player-character .character-body::after,
+#skin-character .character-body::before,
+#skin-character .character-body::after {
+    display: none !important;
+}
+
+/* DEADLY.IO — personnage = un seul cercle */
+.player-character {
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 50% !important;
+    background: #f1c27d !important;
+    border: 3px solid rgba(0,0,0,.35) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+#skin-character.large-character {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50% !important;
+    background: #f1c27d !important;
+    border: 4px solid rgba(0,0,0,.35) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+.player-character > *,
+#skin-character > * {
+    display: none !important;
+}
+
+.body-color {
+    display: none !important;
+}
+
+/* DEADLY.IO — PERSONNAGE ROND UNIQUEMENT */
+
+/* Profil */
+.player-character {
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 50% !important;
+    background: #f1c27d !important;
+    border: 3px solid rgba(0,0,0,.35) !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+.player-character .character-body,
+.player-character .character-face {
+    position: absolute !important;
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 50% !important;
+    inset: 0 !important;
+    background: #f1c27d !important;
+    border: 0 !important;
+}
+
+/* Skins */
+#skin-character {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50% !important;
+    background: #f1c27d !important;
+    border: 4px solid rgba(0,0,0,.35) !important;
+    box-sizing: border-box !important;
+}
+
+#skin-character .character-body,
+#skin-character .character-face {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50% !important;
+    background: #f1c27d !important;
+    border: 0 !important;
+}
+
+/* Les anciennes couleurs de corps ne sont plus visibles */
+.body-color {
+    display: none !important;
+}
+
+/* PROFIL — garder uniquement le cercle principal */
+.player-character .character-body,
+.player-character .character-face {
+    display: none !important;
+}
+
+.player-character {
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 50% !important;
+    background: #f1c27d !important;
+    border: 3px solid rgba(0,0,0,.35) !important;
+}
+
+/* SKINS — cercle unique */
+#skin-character {
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50% !important;
+    background: #f1c27d;
+    border: 4px solid rgba(0,0,0,.35);
+    overflow: hidden;
+}
+
+#skin-character .large-body,
+#skin-character .large-face {
+    display: none !important;
+}
+
+
+#plus-coins {
+    display: none !important;
+}
+
+/* SKINS — couleur dynamique finale */
+.player-character {
+    background: var(--selected-skin, #f1c27d) !important;
+}
+
+#skin-character {
+    background: var(--selected-skin, #f1c27d) !important;
+}
+
+/* PROFIL — un seul cercle */
+.player-character .character-body,
+.player-character .character-face {
+    display: none !important;
+}
+
+/* PROFIL — CERCLE UNIQUE FINAL */
+.player-character {
+    width: 64px !important;
+    height: 64px !important;
+    min-width: 64px !important;
+    min-height: 64px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    position: relative !important;
+    background: var(--selected-skin, #f1c27d) !important;
+}
+
+.player-character > .character-body,
+.player-character > .character-face {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* =========================
+   BOUTIQUE — COULEURS RGB
+========================= */
+
+.shop-rgb {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.rgb-palette {
+    display: grid;
+    grid-template-columns: repeat(4, 52px);
+    gap: 12px;
+    padding: 18px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+}
+
+.rgb-color {
+    width: 52px;
+    height: 52px;
+    border: 2px solid rgba(255,255,255,0.18);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform .15s ease, border-color .15s ease;
+}
+
+.rgb-color:hover {
+    transform: scale(1.08);
+    border-color: #ffffff;
+}
+
+.rgb-color.selected {
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.25);
+}
+
+.rgb-test-area {
+    width: 180px;
+    min-height: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+}
+
+#rgb-test-character {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #f1c27d;
+    border: 3px solid rgba(255,255,255,0.15);
+}
+
+.rgb-test-name {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    opacity: .65;
+}
+
+
+/* =========================
+   BOUTIQUE — CATÉGORIE TRAÎNÉES
+========================= */
+
+.shop-category-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.shop-category-button {
+    min-width: 220px;
+    padding: 16px 30px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 12px;
+    background: rgba(255,255,255,.06);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .18s ease;
+}
+
+.shop-category-button:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,.1);
+    border-color: rgba(255,255,255,.3);
+}
+
+/* PAGE TRAÎNÉES */
+
+.trail-shop-page {
+    display: none;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.trail-shop-page.open {
+    display: block;
+}
+
+.trail-shop-header {
+    position: relative;
+    padding: 10px 0 28px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    margin-bottom: 28px;
+}
+
+.trail-shop-title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.trail-shop-subtitle {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 12px;
+    opacity: .5;
+    letter-spacing: 1px;
+}
+
+.shop-back-button {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    padding: 10px 16px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 9px;
+    background: rgba(255,255,255,.05);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.shop-back-button:hover {
+    background: rgba(255,255,255,.1);
+}
+
+/* ZONE SCROLLABLE */
+
+.trail-shop-list {
+    max-height: 62vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 5px 12px 30px 5px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,.2) transparent;
+}
+
+.trail-shop-list::-webkit-scrollbar {
+    width: 7px;
+}
+
+.trail-shop-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.trail-shop-list::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.2);
+    border-radius: 20px;
+}
+
+/* RARETÉS */
+
+.trail-rarity-section {
+    margin-bottom: 42px;
+}
+
+.trail-rarity-title {
+    margin-bottom: 18px;
+    padding-left: 4px;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.trail-rarity-section.common .trail-rarity-title {
+    color: #9a9a9a;
+}
+
+.trail-rarity-section.uncommon .trail-rarity-title {
+    color: #45c96b;
+}
+
+.trail-rarity-section.rare .trail-rarity-title {
+    color: #3d8cff;
+}
+
+.trail-rarity-section.epic .trail-rarity-title {
+    color: #a855f7;
+}
+
+.trail-rarity-section.legendary .trail-rarity-title {
+    color: #f5d000;
+}
+
+.trail-rarity-section.mythic .trail-rarity-title {
+    color: #ff3b3b;
+}
+
+/* GRILLE */
+
+.trail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* OBJET */
+
+.trail-shop-item {
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px;
+    background: rgba(255,255,255,.035);
+    transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.trail-shop-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,.055);
+    border-color: rgba(255,255,255,.18);
+}
+
+.trail-mini-preview {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #080808;
+    margin-bottom: 13px;
+}
+
+.trail-mini-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.trail-shop-item strong {
+    display: block;
+    font-size: 12px;
+    letter-spacing: .8px;
+}
+
+.trail-shop-item span {
+    display: block;
+    margin-top: 7px;
+    font-size: 11px;
+    opacity: .55;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .trail-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .trail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   BOUTIQUE — DÉCORATION
+========================= */
+
+#shop-panel .panel-content {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.1);
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,.025),
+        0 20px 60px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+/* HALOS DÉCORATIFS */
+
+#shop-panel .panel-content::before,
+#shop-panel .panel-content::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: .08;
+}
+
+#shop-panel .panel-content::before {
+    width: 220px;
+    height: 220px;
+    top: -100px;
+    left: -90px;
+    background: #7c5cff;
+}
+
+#shop-panel .panel-content::after {
+    width: 240px;
+    height: 240px;
+    bottom: -120px;
+    right: -100px;
+    background: #00aaff;
+}
+
+/* CONTENU AU-DESSUS DES DÉCORATIONS */
+
+#shop-panel .panel-content > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* TITRE */
+
+#shop-panel .panel-content > h2 {
+    position: relative;
+    padding-bottom: 18px;
+    margin-bottom: 8px;
+    font-size: 26px;
+    letter-spacing: 3px;
+    font-weight: 900;
+    text-align: center;
+}
+
+#shop-panel .panel-content > h2::after {
+    content: "";
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.22),
+        transparent
+    );
+}
+
+/* SOUS-TITRE */
+
+#shop-panel .shop-subtitle {
+    text-align: center;
+    opacity: .55;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* PRIX */
+
+#shop-panel .shop-price {
+    width: fit-content;
+    margin: 18px auto 24px;
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,.1);
+    background: rgba(255,255,255,.045);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* SÉPARATEUR */
+
+#shop-panel .shop-rgb {
+    position: relative;
+    padding-top: 28px;
+}
+
+#shop-panel .shop-rgb::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.1),
+        transparent
+    );
+}
+
+/* BLOC PALETTE */
+
+#shop-panel .rgb-palette {
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.03),
+        0 10px 30px rgba(0,0,0,.18);
+}
+
+/* BLOC APERÇU */
+
+#shop-panel .rgb-test-area {
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.03),
+        0 10px 30px rgba(0,0,0,.18);
+}
+
+/* BOUTON TRAÎNÉES */
+
+#shop-panel .shop-category-buttons {
+    position: relative;
+    margin-top: 35px;
+    padding-top: 28px;
+}
+
+#shop-panel .shop-category-buttons::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.1),
+        transparent
+    );
+}
+
+#shop-panel .shop-category-button {
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.2),
+        inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+#shop-panel .shop-category-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    width: 70%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.08),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left .5s ease;
+}
+
+#shop-panel .shop-category-button:hover::before {
+    left: 130%;
+}
+
+/* PAGE TRAÎNÉES */
+
+#trail-shop-page {
+    position: relative;
+}
+
+#trail-shop-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.12),
+        transparent
+    );
+}
+
+.trail-rarity-section {
+    position: relative;
+    padding: 18px 0 25px;
+}
+
+.trail-rarity-section::after {
+    content: "";
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.06),
+        transparent
+    );
+}
+
+.trail-rarity-section:last-child::after {
+    display: none;
+}
+
+.trail-shop-item {
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.025),
+        0 8px 25px rgba(0,0,0,.18);
+}
+
+
+/* TRANSITION FLUIDE — APERÇU RGB */
+
+#rgb-test-character {
+    transition:
+        background-color 0.7s cubic-bezier(.22,1,.36,1),
+        box-shadow 0.7s cubic-bezier(.22,1,.36,1);
+}
+
+/* FOND RGB — TRANSITION FLUIDE */
+
+#shop-panel .rgb-test-area {
+    transition:
+        background 0.8s cubic-bezier(.22,1,.36,1),
+        box-shadow 0.8s cubic-bezier(.22,1,.36,1);
+}
+
+#shop-panel .rgb-test-area {
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            color-mix(in srgb, var(--rgb-preview-color, #3d8cff) 28%, transparent),
+            rgba(255,255,255,.025) 65%,
+            rgba(0,0,0,.12)
+        );
+}
+
+/* =========================================================
+   ORGANISATION BOUTIQUE — PERSONNAGE / TRAÎNÉES
+========================================================= */
+
+/* SECTION PERSONNAGE */
+#shop-panel .shop-rgb {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    margin: 25px 0 35px;
+    padding: 58px 20px 30px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 16px;
+    background: rgba(255,255,255,.025);
+}
+
+/* TITRE PERSONNAGE */
+#shop-panel .shop-rgb::before {
+    content: "PERSONNAGE";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+    color: #ffffff;
+}
+
+/* SOUS-TITRE PERSONNAGE */
+#shop-panel .shop-rgb::after {
+    content: "Couleur de peau et personnalisation";
+    position: absolute;
+    top: 21px;
+    right: 20px;
+    font-size: 10px;
+    letter-spacing: .5px;
+    opacity: .45;
+}
+
+/* =========================================================
+   SÉPARATION AVANT LES TRAÎNÉES
+========================================================= */
+
+#shop-panel .trail-shop-page {
+    position: relative;
+    margin-top: 42px;
+    padding-top: 34px;
+    border-top: 1px solid rgba(255,255,255,.12);
+}
+
+/* LIGNE VISUELLE */
+#shop-panel .trail-shop-page::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    width: 90px;
+    height: 2px;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,.35);
+    border-radius: 10px;
+}
+
+/* TITRE TRAÎNÉES */
+#shop-panel .trail-shop-header {
+    margin-bottom: 30px;
+}
+
+/* ESPACEMENT DU TITRE */
+#shop-panel .trail-shop-title {
+    letter-spacing: 2px;
+}
+
+/* SOUS-TITRE */
+#shop-panel .trail-shop-subtitle {
+    margin-top: 8px;
+    opacity: .5;
+}
+
+/* =========================================================
+   RARETÉS — ORGANISATION PLUS CLAIRE
+========================================================= */
+
+#shop-panel .trail-rarity-section {
+    padding: 22px 0 28px;
+    margin-bottom: 20px;
+}
+
+#shop-panel .trail-rarity-section + .trail-rarity-section {
+    border-top: 1px solid rgba(255,255,255,.055);
+}
+
+#shop-panel .trail-rarity-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-left: 6px;
+}
+
+/* PETITE LIGNE À CÔTÉ DE CHAQUE RARETÉ */
+#shop-panel .trail-rarity-title::before {
+    content: "";
+    width: 3px;
+    height: 18px;
+    border-radius: 4px;
+    background: currentColor;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    #shop-panel .shop-rgb {
+        gap: 20px;
+        padding: 58px 14px 24px;
+    }
+
+    #shop-panel .shop-rgb::after {
+        position: static;
+        width: 100%;
+        text-align: center;
+        margin-top: -8px;
+    }
+
+    #shop-panel .trail-shop-page {
+        margin-top: 30px;
+        padding-top: 28px;
+    }
+
+    #shop-panel .trail-rarity-section {
+        padding-top: 18px;
+    }
+}
+
+
+/* =========================================================
+   BOUTIQUE — VRAIES PAGES SÉPARÉES
+========================================================= */
+
+#shop-panel .shop-main-page {
+    display: block;
+}
+
+#shop-panel .shop-main-page.hidden {
+    display: none !important;
+}
+
+#shop-panel .shop-section-label {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+#shop-panel .shop-section-description {
+    margin-top: 8px;
+    margin-bottom: 25px;
+    font-size: 11px;
+    opacity: .45;
+}
+
+#shop-panel .shop-trails-launch {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 10px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+#shop-panel .shop-trails-launch .shop-category-button {
+    min-width: 220px;
+}
+
+#shop-panel .trail-shop-page {
+    display: none;
+}
+
+#shop-panel .trail-shop-page.open {
+    display: block;
+}
+
+#shop-panel .trail-shop-page .trail-shop-header {
+    margin-bottom: 25px;
+}
+
+#shop-panel .shop-character-content {
+    display: block;
+}
+
+#shop-panel .shop-character-content.hidden {
+    display: none !important;
+}
+
+#shop-panel .shop-back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 22px;
+    margin-bottom: 20px;
+}
+
+
+.shop-subpage {
+    display: none !important;
+}
+
+.shop-subpage.open {
+    display: block !important;
+}
+
+#trail-shop-page {
+    display: none !important;
+}
+
+#trail-shop-page.open {
+    display: block !important;
+}
+
+/* =========================================
+   BOUTIQUE — TABLEAUX INDÉPENDANTS
+========================================= */
+
+#shop-panel .shop-page-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 28px;
+}
+
+#shop-panel .shop-independent-page {
+    display: none !important;
+    width: 100%;
+}
+
+#shop-panel .shop-independent-page.open {
+    display: block !important;
+}
+
+#shop-panel .shop-independent-page {
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 18px;
+    background: rgba(255,255,255,.035);
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.04),
+        0 18px 45px rgba(0,0,0,.28);
+}
+
+#shop-panel .shop-independent-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+#shop-panel .shop-independent-title {
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+#shop-panel .shop-independent-subtitle {
+    margin-top: 8px;
+    font-size: 12px;
+    opacity: .55;
+}
+
+#shop-panel .shop-independent-content {
+    width: 100%;
+}
+
+#shop-panel .shop-independent-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+#shop-panel #shop-character-page .shop-rgb {
+    margin-top: 0;
+}
+
+#shop-panel #trail-shop-page .trail-shop-page {
+    display: block !important;
+}
+
+#shop-panel #trail-shop-page .trail-shop-list {
+    max-height: 62vh;
+}
+
+#shop-panel .shop-back-button {
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   BOUTIQUE — SÉPARATION DES SHOPS
+========================================= */
+
+#shop-panel .panel-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+#shop-panel .shop-rgb {
+    position: relative;
+    margin: 25px 0 0;
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 18px;
+    background: rgba(255,255,255,.035);
+}
+
+#shop-panel .trail-shop-page {
+    position: relative;
+    margin-top: 25px;
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 18px;
+    background: rgba(255,255,255,.035);
+}
+
+#shop-panel .trail-shop-page {
+    display: none;
+}
+
+#shop-panel .trail-shop-page.open {
+    display: block;
+}
+
+#shop-panel .shop-rgb.shop-hidden {
+    display: none !important;
+}
+
+#shop-panel .shop-character-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#shop-panel .shop-character-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+#shop-panel .shop-character-header p {
+    margin: 7px 0 0;
+    font-size: 11px;
+    opacity: .55;
+}
+
+#shop-panel .shop-category-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 28px 0 0;
+}
+
+#shop-panel .shop-category-button {
+    min-width: 220px;
+}
+
+
+/* BOUTIQUE — FERMER À GAUCHE */
+#shop-panel .close-panel {
+    display: block;
+    margin-right: auto;
+    margin-left: 0;
+}
+
+/* BOUTIQUE — FERMER HORS DU TABLEAU */
+#shop-panel .panel-content {
+    position: relative;
+}
+
+#shop-panel .close-panel {
+    position: absolute;
+    top: -48px;
+    left: 0;
+    margin: 0;
+    z-index: 20;
+}
+
+/* BOUTIQUE — FERMER HORS DU TABLEAU */
+#shop-panel .panel-content {
+    overflow: visible !important;
+}
+
+#shop-panel .close-panel {
+    position: absolute;
+    top: -52px;
+    left: 0;
+    margin: 0 !important;
+    z-index: 9999;
+    display: block !important;
+}
+
+/* =========================================================
+   TRAÎNÉES — MODALE ACHAT
+========================================================= */
+
+#trail-purchase-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#trail-purchase-modal.open {
+    display: flex;
+}
+
+#trail-purchase-modal .trail-purchase-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .78);
+    backdrop-filter: blur(8px);
+}
+
+#trail-purchase-modal .trail-purchase-card {
+    position: relative;
+    width: min(560px, calc(100vw - 32px));
+    padding: 32px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 22px;
+    background: #101010;
+    box-shadow: 0 25px 80px rgba(0,0,0,.55);
+    text-align: center;
+    z-index: 1;
+}
+
+#trail-purchase-modal .trail-purchase-close {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    opacity: .65;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+#trail-purchase-modal .trail-purchase-title {
+    margin: 8px 0 20px;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+#trail-purchase-modal .trail-purchase-preview {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    margin: auto;
+    aspect-ratio: 440 / 260;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255,255,255,.025);
+}
+
+#trail-purchase-modal #trail-purchase-preview {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#trail-purchase-modal .trail-sold-badge {
+    position: absolute;
+    inset: 25px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255, 35, 35, .85);
+    background: rgba(255, 0, 0, .06);
+    color: #ff3030;
+    font-size: 38px;
+    font-weight: 1000;
+    letter-spacing: 5px;
+    pointer-events: none;
+}
+
+#trail-purchase-modal .trail-purchase-price {
+    margin-top: 18px;
+    font-size: 19px;
+    font-weight: 900;
+}
+
+#trail-purchase-modal .trail-purchase-question {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: .75;
+}
+
+#trail-purchase-modal .trail-purchase-status {
+    min-height: 20px;
+    margin-top: 12px;
+    font-size: 12px;
+    opacity: .7;
+}
+
+#trail-purchase-modal .payment-warning {
+    color: #ff5555;
+    opacity: 1;
+    font-weight: 800;
+}
+
+#trail-purchase-modal .trail-purchase-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+#trail-purchase-modal .trail-purchase-actions button {
+    min-width: 145px;
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px;
+    background: rgba(255,255,255,.06);
+    color: #fff;
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: .8px;
+    cursor: pointer;
+}
+
+#trail-purchase-modal #trail-purchase-pay {
+    background: rgba(255,255,255,.12);
+}
+
+#trail-purchase-modal #trail-purchase-equip {
+    background: rgba(255,255,255,.12);
+}
+
+#trail-purchase-modal #trail-purchase-cancel {
+    opacity: .65;
+}
+
+@media (max-width: 600px) {
+    #trail-purchase-modal .trail-purchase-card {
+        padding: 24px 16px;
+    }
+
+    #trail-purchase-modal .trail-sold-badge {
+        inset: 15px;
+        font-size: 26px;
+    }
+}
+
+/* =========================================================
+   TRAÎNÉES — PREVIEW HD PROPRE
+========================================================= */
+
+#trail-purchase-modal .trail-purchase-preview {
+    width: min(100%, 660px);
+    max-width: 660px;
+    aspect-ratio: 1320 / 780;
+    margin: 22px auto 0;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.12);
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012) 70%
+        );
+}
+
+#trail-purchase-modal #trail-purchase-preview {
+    display: block;
+    width: 100%;
+    height: 100%;
+    image-rendering: auto;
+}
+
+#trail-purchase-modal .trail-sold-badge {
+    position: absolute;
+    inset: 28px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255,35,35,.9);
+    background: rgba(255,0,0,.055);
+    color: #ff3030;
+    font-size: clamp(28px, 5vw, 46px);
+    font-weight: 1000;
+    letter-spacing: 7px;
+    pointer-events: none;
+    text-shadow: 0 0 18px rgba(255,0,0,.25);
+}
+
+#trail-purchase-modal .trail-purchase-title {
+    font-size: 24px;
+    font-weight: 950;
+    letter-spacing: 2.5px;
+}
+
+#trail-purchase-modal .trail-purchase-price {
+    font-size: 20px;
+    font-weight: 900;
+    margin-top: 18px;
+}
+
+#trail-purchase-modal .trail-purchase-question {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: .78;
+}
+
+#trail-purchase-modal .trail-purchase-actions {
+    margin-top: 22px;
+}
+
+/* =========================================================
+   HELMETS — STRUCTURE DE LA BOUTIQUE
+========================================================= */
+
+#helmet-shop-page {
+    display: none;
+    position: relative;
+    margin-top: 25px;
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 18px;
+    background: rgba(255,255,255,.035);
+}
+
+#helmet-shop-page.open {
+    display: block;
+}
+
+#helmet-shop-page .helmet-shop-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#helmet-shop-page .helmet-shop-title {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+#helmet-shop-page .helmet-shop-subtitle {
+    margin-top: 7px;
+    font-size: 11px;
+    opacity: .55;
+}
+
+#helmet-shop-page .helmet-shop-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-height: 650px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+#helmet-shop-page .helmet-rarity-section {
+    position: relative;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px;
+    background: rgba(255,255,255,.025);
+}
+
+#helmet-shop-page .helmet-rarity-title {
+    margin-bottom: 16px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+}
+
+#helmet-shop-page .helmet-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    min-height: 110px;
+}
+
+#helmet-shop-page .helmet-grid:empty::before {
+    content: "AUCUN HELMET DISPONIBLE";
+    grid-column: 1 / -1;
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed rgba(255,255,255,.10);
+    border-radius: 12px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    opacity: .28;
+}
+
+#helmet-shop-page .shop-back-button {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+    #helmet-shop-page .helmet-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    #helmet-shop-page .helmet-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   HELMETS — MÊME STRUCTURE VISUELLE QUE TRAÎNÉES
+========================================================= */
+
+@media (max-width: 700px) {
+    
+@media (max-width: 700px) {
+    
+@media (max-width: 700px) {
+
+    
+
+/* =========================================================
+   HELMETS — COPIE EXACTE DU STYLE TRAÎNÉES
+========================================================= */
+
+
+
+/* PAGE TRAÎNÉES */
+
+.helmet-shop-page {
+    display: none;
+    width: 100%;
+    margin-top: 25px;
+}
+
+
+
+.helmet-shop-page.open {
+    display: block;
+}
+
+
+
+.helmet-shop-header {
+    position: relative;
+    padding: 10px 0 28px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    margin-bottom: 28px;
+}
+
+
+
+.helmet-shop-title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+
+.helmet-shop-subtitle {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 12px;
+    opacity: .5;
+    letter-spacing: 1px;
+}
+
+
+
+/* ZONE SCROLLABLE */
+
+.helmet-shop-list {
+    max-height: 62vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 5px 12px 30px 5px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,.2) transparent;
+}
+
+
+
+.helmet-shop-list::-webkit-scrollbar {
+    width: 7px;
+}
+
+
+
+.helmet-shop-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+
+.helmet-shop-list::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.2);
+    border-radius: 20px;
+}
+
+
+
+/* RARETÉS */
+
+.helmet-rarity-section {
+    margin-bottom: 42px;
+}
+
+
+
+.helmet-rarity-title {
+    margin-bottom: 18px;
+    padding-left: 4px;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+
+
+.helmet-rarity-section.common .helmet-rarity-title {
+    color: #9a9a9a;
+}
+
+
+
+.helmet-rarity-section.uncommon .helmet-rarity-title {
+    color: #45c96b;
+}
+
+
+
+.helmet-rarity-section.rare .helmet-rarity-title {
+    color: #3d8cff;
+}
+
+
+
+.helmet-rarity-section.epic .helmet-rarity-title {
+    color: #a855f7;
+}
+
+
+
+.helmet-rarity-section.legendary .helmet-rarity-title {
+    color: #f5d000;
+}
+
+
+
+.helmet-rarity-section.mythic .helmet-rarity-title {
+    color: #ff3b3b;
+}
+
+
+
+/* GRILLE */
+
+.helmet-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+
+
+/* OBJET */
+
+.helmet-shop-item {
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px;
+    background: rgba(255,255,255,.035);
+    transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+
+
+.helmet-shop-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,.055);
+    border-color: rgba(255,255,255,.18);
+}
+
+
+
+.helmet-mini-preview {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #080808;
+    margin-bottom: 13px;
+}
+
+
+
+.helmet-mini-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.helmet-shop-item strong {
+    display: block;
+    font-size: 12px;
+    letter-spacing: .8px;
+}
+
+
+
+.helmet-shop-item span {
+    display: block;
+    margin-top: 7px;
+    font-size: 11px;
+    opacity: .55;
+}
+
+
+    .helmet-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+    .helmet-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+
+.helmet-rarity-section {
+    position: relative;
+    padding: 18px 0 25px;
+}
+
+
+
+.helmet-rarity-section::after {
+    content: "";
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.06),
+        transparent
+    );
+}
+
+
+
+.helmet-rarity-section:last-child::after {
+    display: none;
+}
+
+
+
+.helmet-shop-item {
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.025),
+        0 8px 25px rgba(0,0,0,.18);
+}
+
+
+
+/* =========================================================
+   SÉPARATION AVANT LES TRAÎNÉES
+========================================================= */
+
+#shop-panel .helmet-shop-page {
+    position: relative;
+    margin-top: 42px;
+    padding-top: 34px;
+    border-top: 1px solid rgba(255,255,255,.12);
+}
+
+
+
+/* LIGNE VISUELLE */
+#shop-panel .helmet-shop-page::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    width: 90px;
+    height: 2px;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,.35);
+    border-radius: 10px;
+}
+
+
+
+/* TITRE TRAÎNÉES */
+#shop-panel .helmet-shop-header {
+    margin-bottom: 30px;
+}
+
+
+
+/* ESPACEMENT DU TITRE */
+#shop-panel .helmet-shop-title {
+    letter-spacing: 2px;
+}
+
+
+
+/* SOUS-TITRE */
+#shop-panel .helmet-shop-subtitle {
+    margin-top: 8px;
+    opacity: .5;
+}
+
+
+
+/* =========================================================
+   RARETÉS — ORGANISATION PLUS CLAIRE
+========================================================= */
+
+#shop-panel .helmet-rarity-section {
+    padding: 22px 0 28px;
+    margin-bottom: 20px;
+}
+
+
+
+#shop-panel .helmet-rarity-section + .helmet-rarity-section {
+    border-top: 1px solid rgba(255,255,255,.055);
+}
+
+
+
+#shop-panel .helmet-rarity-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-left: 6px;
+}
+
+
+
+/* PETITE LIGNE À CÔTÉ DE CHAQUE RARETÉ */
+#shop-panel .helmet-rarity-title::before {
+    content: "";
+    width: 3px;
+    height: 18px;
+    border-radius: 4px;
+    background: currentColor;
+}
+
+
+
+    #shop-panel .helmet-shop-page {
+        margin-top: 30px;
+        padding-top: 28px;
+    }
+
+
+
+    #shop-panel .helmet-rarity-section {
+        padding-top: 18px;
+    }
+
+
+
+#shop-panel .helmet-shop-page {
+    display: none;
+}
+
+
+
+#shop-panel .helmet-shop-page.open {
+    display: block;
+}
+
+
+
+#shop-panel .helmet-shop-page .helmet-shop-header {
+    margin-bottom: 25px;
+}
+
+
+
+#shop-panel #trail-shop-page .helmet-shop-page {
+    display: block !important;
+}
+
+
+
+#shop-panel #trail-shop-page .helmet-shop-list {
+    max-height: 62vh;
+}
+
+
+
+#shop-panel .helmet-shop-page {
+    position: relative;
+    margin-top: 25px;
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 18px;
+    background: rgba(255,255,255,.035);
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .78);
+    backdrop-filter: blur(8px);
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-card {
+    position: relative;
+    width: min(560px, calc(100vw - 32px));
+    padding: 32px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 22px;
+    background: #101010;
+    box-shadow: 0 25px 80px rgba(0,0,0,.55);
+    text-align: center;
+    z-index: 1;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-close {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    opacity: .65;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-title {
+    margin: 8px 0 20px;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-preview {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    margin: auto;
+    aspect-ratio: 440 / 260;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255,255,255,.025);
+}
+
+
+
+#trail-purchase-modal .helmet-sold-badge {
+    position: absolute;
+    inset: 25px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255, 35, 35, .85);
+    background: rgba(255, 0, 0, .06);
+    color: #ff3030;
+    font-size: 38px;
+    font-weight: 1000;
+    letter-spacing: 5px;
+    pointer-events: none;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-price {
+    margin-top: 18px;
+    font-size: 19px;
+    font-weight: 900;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-question {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: .75;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-status {
+    min-height: 20px;
+    margin-top: 12px;
+    font-size: 12px;
+    opacity: .7;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-actions button {
+    min-width: 145px;
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px;
+    background: rgba(255,255,255,.06);
+    color: #fff;
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: .8px;
+    cursor: pointer;
+}
+
+
+    #trail-purchase-modal .helmet-purchase-card {
+        padding: 24px 16px;
+    }
+
+
+
+    #trail-purchase-modal .helmet-sold-badge {
+        inset: 15px;
+        font-size: 26px;
+    }
+
+
+
+/* =========================================================
+   TRAÎNÉES — PREVIEW HD PROPRE
+========================================================= */
+
+#trail-purchase-modal .helmet-purchase-preview {
+    width: min(100%, 660px);
+    max-width: 660px;
+    aspect-ratio: 1320 / 780;
+    margin: 22px auto 0;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.12);
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012) 70%
+        );
+}
+
+
+
+#trail-purchase-modal .helmet-sold-badge {
+    position: absolute;
+    inset: 28px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255,35,35,.9);
+    background: rgba(255,0,0,.055);
+    color: #ff3030;
+    font-size: clamp(28px, 5vw, 46px);
+    font-weight: 1000;
+    letter-spacing: 7px;
+    pointer-events: none;
+    text-shadow: 0 0 18px rgba(255,0,0,.25);
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-title {
+    font-size: 24px;
+    font-weight: 950;
+    letter-spacing: 2.5px;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-price {
+    font-size: 20px;
+    font-weight: 900;
+    margin-top: 18px;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-question {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: .78;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-actions {
+    margin-top: 22px;
+}
+
+
+/* =========================================================
+   HELMETS — COPIE DES RÈGLES TRAÎNÉES
+========================================================= */
+
+
+
+/* PAGE TRAÎNÉES */
+
+.helmet-shop-page {
+    display: none;
+    width: 100%;
+    margin-top: 25px;
+}
+
+
+
+.helmet-shop-page.open {
+    display: block;
+}
+
+
+
+.helmet-shop-header {
+    position: relative;
+    padding: 10px 0 28px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    margin-bottom: 28px;
+}
+
+
+
+.helmet-shop-title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+
+.helmet-shop-subtitle {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 12px;
+    opacity: .5;
+    letter-spacing: 1px;
+}
+
+
+
+/* ZONE SCROLLABLE */
+
+.helmet-shop-list {
+    max-height: 62vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 5px 12px 30px 5px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,.2) transparent;
+}
+
+
+
+.helmet-shop-list::-webkit-scrollbar {
+    width: 7px;
+}
+
+
+
+.helmet-shop-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+
+.helmet-shop-list::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.2);
+    border-radius: 20px;
+}
+
+
+
+/* RARETÉS */
+
+.helmet-rarity-section {
+    margin-bottom: 42px;
+}
+
+
+
+.helmet-rarity-title {
+    margin-bottom: 18px;
+    padding-left: 4px;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+
+
+.helmet-rarity-section.common .helmet-rarity-title {
+    color: #9a9a9a;
+}
+
+
+
+.helmet-rarity-section.uncommon .helmet-rarity-title {
+    color: #45c96b;
+}
+
+
+
+.helmet-rarity-section.rare .helmet-rarity-title {
+    color: #3d8cff;
+}
+
+
+
+.helmet-rarity-section.epic .helmet-rarity-title {
+    color: #a855f7;
+}
+
+
+
+.helmet-rarity-section.legendary .helmet-rarity-title {
+    color: #f5d000;
+}
+
+
+
+.helmet-rarity-section.mythic .helmet-rarity-title {
+    color: #ff3b3b;
+}
+
+
+
+/* GRILLE */
+
+.helmet-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+
+
+/* OBJET */
+
+.helmet-shop-item {
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px;
+    background: rgba(255,255,255,.035);
+    transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+
+
+.helmet-shop-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,.055);
+    border-color: rgba(255,255,255,.18);
+}
+
+
+
+.helmet-mini-preview {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #080808;
+    margin-bottom: 13px;
+}
+
+
+
+.helmet-mini-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.helmet-shop-item strong {
+    display: block;
+    font-size: 12px;
+    letter-spacing: .8px;
+}
+
+
+
+.helmet-shop-item span {
+    display: block;
+    margin-top: 7px;
+    font-size: 11px;
+    opacity: .55;
+}
+
+
+    .helmet-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+    .helmet-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+
+.helmet-rarity-section {
+    position: relative;
+    padding: 18px 0 25px;
+}
+
+
+
+.helmet-rarity-section::after {
+    content: "";
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.06),
+        transparent
+    );
+}
+
+
+
+.helmet-rarity-section:last-child::after {
+    display: none;
+}
+
+
+
+.helmet-shop-item {
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.025),
+        0 8px 25px rgba(0,0,0,.18);
+}
+
+
+
+/* =========================================================
+   SÉPARATION AVANT LES TRAÎNÉES
+========================================================= */
+
+#shop-panel .helmet-shop-page {
+    position: relative;
+    margin-top: 42px;
+    padding-top: 34px;
+    border-top: 1px solid rgba(255,255,255,.12);
+}
+
+
+
+/* LIGNE VISUELLE */
+#shop-panel .helmet-shop-page::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    width: 90px;
+    height: 2px;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,.35);
+    border-radius: 10px;
+}
+
+
+
+/* TITRE TRAÎNÉES */
+#shop-panel .helmet-shop-header {
+    margin-bottom: 30px;
+}
+
+
+
+/* ESPACEMENT DU TITRE */
+#shop-panel .helmet-shop-title {
+    letter-spacing: 2px;
+}
+
+
+
+/* SOUS-TITRE */
+#shop-panel .helmet-shop-subtitle {
+    margin-top: 8px;
+    opacity: .5;
+}
+
+
+
+/* =========================================================
+   RARETÉS — ORGANISATION PLUS CLAIRE
+========================================================= */
+
+#shop-panel .helmet-rarity-section {
+    padding: 22px 0 28px;
+    margin-bottom: 20px;
+}
+
+
+
+#shop-panel .helmet-rarity-section + .helmet-rarity-section {
+    border-top: 1px solid rgba(255,255,255,.055);
+}
+
+
+
+#shop-panel .helmet-rarity-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-left: 6px;
+}
+
+
+
+/* PETITE LIGNE À CÔTÉ DE CHAQUE RARETÉ */
+#shop-panel .helmet-rarity-title::before {
+    content: "";
+    width: 3px;
+    height: 18px;
+    border-radius: 4px;
+    background: currentColor;
+}
+
+
+
+    #shop-panel .helmet-shop-page {
+        margin-top: 30px;
+        padding-top: 28px;
+    }
+
+
+
+    #shop-panel .helmet-rarity-section {
+        padding-top: 18px;
+    }
+
+
+
+#shop-panel .helmet-shop-page {
+    display: none;
+}
+
+
+
+#shop-panel .helmet-shop-page.open {
+    display: block;
+}
+
+
+
+#shop-panel .helmet-shop-page .helmet-shop-header {
+    margin-bottom: 25px;
+}
+
+
+
+#shop-panel #trail-shop-page .helmet-shop-page {
+    display: block !important;
+}
+
+
+
+#shop-panel #trail-shop-page .helmet-shop-list {
+    max-height: 62vh;
+}
+
+
+
+#shop-panel .helmet-shop-page {
+    position: relative;
+    margin-top: 25px;
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 18px;
+    background: rgba(255,255,255,.035);
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .78);
+    backdrop-filter: blur(8px);
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-card {
+    position: relative;
+    width: min(560px, calc(100vw - 32px));
+    padding: 32px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 22px;
+    background: #101010;
+    box-shadow: 0 25px 80px rgba(0,0,0,.55);
+    text-align: center;
+    z-index: 1;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-close {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    opacity: .65;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-title {
+    margin: 8px 0 20px;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-preview {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    margin: auto;
+    aspect-ratio: 440 / 260;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255,255,255,.025);
+}
+
+
+
+#trail-purchase-modal .helmet-sold-badge {
+    position: absolute;
+    inset: 25px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255, 35, 35, .85);
+    background: rgba(255, 0, 0, .06);
+    color: #ff3030;
+    font-size: 38px;
+    font-weight: 1000;
+    letter-spacing: 5px;
+    pointer-events: none;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-price {
+    margin-top: 18px;
+    font-size: 19px;
+    font-weight: 900;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-question {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: .75;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-status {
+    min-height: 20px;
+    margin-top: 12px;
+    font-size: 12px;
+    opacity: .7;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-actions button {
+    min-width: 145px;
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px;
+    background: rgba(255,255,255,.06);
+    color: #fff;
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: .8px;
+    cursor: pointer;
+}
+
+
+    #trail-purchase-modal .helmet-purchase-card {
+        padding: 24px 16px;
+    }
+
+
+
+    #trail-purchase-modal .helmet-sold-badge {
+        inset: 15px;
+        font-size: 26px;
+    }
+
+
+
+/* =========================================================
+   TRAÎNÉES — PREVIEW HD PROPRE
+========================================================= */
+
+#trail-purchase-modal .helmet-purchase-preview {
+    width: min(100%, 660px);
+    max-width: 660px;
+    aspect-ratio: 1320 / 780;
+    margin: 22px auto 0;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.12);
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012) 70%
+        );
+}
+
+
+
+#trail-purchase-modal .helmet-sold-badge {
+    position: absolute;
+    inset: 28px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255,35,35,.9);
+    background: rgba(255,0,0,.055);
+    color: #ff3030;
+    font-size: clamp(28px, 5vw, 46px);
+    font-weight: 1000;
+    letter-spacing: 7px;
+    pointer-events: none;
+    text-shadow: 0 0 18px rgba(255,0,0,.25);
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-title {
+    font-size: 24px;
+    font-weight: 950;
+    letter-spacing: 2.5px;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-price {
+    font-size: 20px;
+    font-weight: 900;
+    margin-top: 18px;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-question {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: .78;
+}
+
+
+
+#trail-purchase-modal .helmet-purchase-actions {
+    margin-top: 22px;
+}

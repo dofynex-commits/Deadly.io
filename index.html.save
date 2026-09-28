@@ -1,0 +1,24 @@
+      <div class="stat">🧟 <span id="kills">0</span></div>
+    </div>
+    <div id="resources">
+      <span class="res">🪵 <span id="wood">0</span></span>
+      <span class="res">🪨 <span id="stone">0</span></span>
+      <span class="res">⛏️ <span id="iron">0</span></span>
+      <span class="res">💎 <span id="crystal">0</span></span>
+    </div>
+    <div id="minimap-container">
+      <canvas id="minimap" width="120" height="120"></canvas>
+    </div>
+  </div>
+  <canvas id="game"></canvas>
+  <div id="build-bar">
+    <button class="build-btn" data-type="wall" title="Mur (Bois x5)">🧱</button>
+    <button class="build-btn" data-type="door" title="Porte (Bois x8)">🚪</button>
+    <button class="build-btn" data-type="chest" title="Coffre (Bois x10)">📦</button>
+    <button class="build-btn" data-type="turret" title="Tourelle (Pierre x15 + Fer x5)">🔫</button>
+    <button class="build-btn" data-type="farm" title="Ferme (Bois x12)">🌾</button>
+  </div>
+  <div id="info">ZQSD / WASD pour bouger • Clic pour attaquer • E pour récolter • 1-5 pour construire</div>
+  <script src="game.js"></script>
+</body>
+</html>
