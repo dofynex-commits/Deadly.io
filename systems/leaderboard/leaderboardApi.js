@@ -1,7 +1,7 @@
 "use strict";
 
 (function () {
-    const API_URL = "http://localhost:8787/leaderboard";
+    const API_URL = "https://deadly-leaderboard.onrender.com/leaderboard";
 
     async function getLeaderboard() {
         try {
